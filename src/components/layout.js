@@ -2,12 +2,12 @@
 import { jsx } from 'theme-ui';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from './header';
+import Header from './Header/Header';
 import Logo from './logo';
 import Navigation from './navigation';
 
 import '../assets/scss/style.scss';
-import Footer from './footer';
+import Footer from './Footer/Footer';
 import Theme from '../components/theme';
 
 const query = graphql`

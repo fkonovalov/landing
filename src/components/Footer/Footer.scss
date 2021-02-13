@@ -1,0 +1,18 @@
+.site-footer {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px 0;
+  p {
+    margin: 0;
+    color: #fff;
+  }
+  a {
+    font-weight: normal;
+  }
+  a:hover {
+    color: #fff;
+  }
+}

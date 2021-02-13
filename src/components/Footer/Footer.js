@@ -3,6 +3,8 @@ import { jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 import { RiHeart2Line } from 'react-icons/ri';
 
+import './Footer.scss';
+
 const Footer = () => (
   <footer
     className="site-footer"
@@ -16,7 +18,7 @@ const Footer = () => (
         <span className="icon -love">
           <RiHeart2Line />
         </span>{' '}
-        by <Link to="/">Stackrole.com</Link>
+        by <Link to="/">Stackrole.com!!!</Link>
       </p>
     </div>
   </footer>
