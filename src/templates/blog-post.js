@@ -1,74 +1,80 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
-import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri"
+import { jsx } from 'theme-ui';
+import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import { RiArrowRightLine, RiArrowLeftLine } from 'react-icons/ri';
 
-import Layout from "../components/layout"
+import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const styles = {
   'article blockquote': {
-    'background-color': 'cardBg'
+    'background-color': 'cardBg',
   },
   pagination: {
-    'a': {
+    a: {
       color: 'muted',
       '&.is-active': {
-        color: 'text'
+        color: 'text',
       },
       '&:hover': {
-        color: 'text'
-      }
-    }
-  }
-}
+        color: 'text',
+      },
+    },
+  },
+};
 
 const Pagination = (props) => (
-  <div 
-    className="pagination -post"
-    sx={styles.pagination}
-  >
+  <div className="pagination -post" sx={styles.pagination}>
     <ul>
-        {(props.previous && props.previous.frontmatter.template === 'blog-post') && (
-          <li>
-              <Link to={props.previous.frontmatter.slug} rel="prev">
-                <p
-                  sx={{
-                    color: 'muted'
-                  }}
-                >
-                  <span className="icon -left"><RiArrowLeftLine/></span> Previous</p>
-                <span className="page-title">{props.previous.frontmatter.title}</span>
-              </Link>
-          </li>
-        )}
-        {(props.next && props.next.frontmatter.template === 'blog-post') && (
-          <li>
-            <Link to={props.next.frontmatter.slug} rel="next">
-              <p
-                sx={{
-                  color: 'muted'
-                }}
-              >Next <span className="icon -right"><RiArrowRightLine/></span></p>
-              <span className="page-title">{props.next.frontmatter.title}</span>
-            </Link>
-          </li>
-        )}
+      {props.previous && props.previous.frontmatter.template === 'blog-post' && (
+        <li>
+          <Link to={props.previous.frontmatter.slug} rel="prev">
+            <p
+              sx={{
+                color: 'muted',
+              }}
+            >
+              <span className="icon -left">
+                <RiArrowLeftLine />
+              </span>{' '}
+              Previous
+            </p>
+            <span className="page-title">{props.previous.frontmatter.title}</span>
+          </Link>
+        </li>
+      )}
+      {props.next && props.next.frontmatter.template === 'blog-post' && (
+        <li>
+          <Link to={props.next.frontmatter.slug} rel="next">
+            <p
+              sx={{
+                color: 'muted',
+              }}
+            >
+              Next{' '}
+              <span className="icon -right">
+                <RiArrowRightLine />
+              </span>
+            </p>
+            <span className="page-title">{props.next.frontmatter.title}</span>
+          </Link>
+        </li>
+      )}
     </ul>
   </div>
-)
+);
 
 const Post = ({ data, pageContext }) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html, excerpt } = markdownRemark
-  const Image = frontmatter.featuredImage ? frontmatter.featuredImage.childImageSharp.fluid : ""
-  const { previous, next } = pageContext
+  const { markdownRemark } = data; // data.markdownRemark holds your post data
+  const { frontmatter, html, excerpt } = markdownRemark;
+  const Image = frontmatter.featuredImage ? frontmatter.featuredImage.childImageSharp.fluid : '';
+  const { previous, next } = pageContext;
 
   let props = {
     previous,
-    next
-  }
+    next,
+  };
 
   return (
     <Layout className="page">
@@ -85,35 +91,30 @@ const Post = ({ data, pageContext }) => {
             <time>{frontmatter.date}</time>
           </section>
           {Image ? (
-            <Img 
-              fluid={Image} 
+            <Img
+              fluid={Image}
               objectFit="cover"
               objectPosition="50% 50%"
               alt={frontmatter.title + ' - Featured image'}
               className="featured-image"
             />
-          ) : ""}
+          ) : (
+            ''
+          )}
         </header>
-        
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </article>
-      {(previous || next) && (
-        <Pagination {...props} />
-      )}
-    </Layout>
-  )
-}
 
-export default Post
+        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
+      </article>
+      {(previous || next) && <Pagination {...props} />}
+    </Layout>
+  );
+};
+
+export default Post;
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String!) {
-    markdownRemark( 
-      id: { eq: $id }
-    ) {
+    markdownRemark(id: { eq: $id }) {
       id
       html
       excerpt(pruneLength: 148)
@@ -136,4 +137,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

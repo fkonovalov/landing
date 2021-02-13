@@ -1,54 +1,48 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { useStaticQuery, graphql } from "gatsby"
+import { jsx } from 'theme-ui';
+import { useStaticQuery, graphql } from 'gatsby';
 
+import Header from './header';
+import Logo from './logo';
+import Navigation from './navigation';
 
-import Header from "./header"
-import Logo from "./logo"
-import Navigation from "./navigation";
-
-import "../assets/scss/style.scss"
-import Footer from "./footer";
-import Theme from "../components/theme"
-
+import '../assets/scss/style.scss';
+import Footer from './footer';
+import Theme from '../components/theme';
 
 const query = graphql`
-query LayoutQuery {
-  site {
-    siteMetadata {
-      siteTitle: title
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        siteTitle: title
+      }
     }
   }
-}
-`
+`;
 
-const Layout = ({children, className, props}) => {
-
-  const { site } = useStaticQuery(query)
-  const { siteTitle } = site.siteMetadata
-
+const Layout = ({ children, className, props }) => {
+  const { site } = useStaticQuery(query);
+  const { siteTitle } = site.siteMetadata;
 
   return (
     <div className="primary-container">
       <Header>
         <Logo title={siteTitle} />
-        <Navigation/>
+        <Navigation />
         <div sx={layoutStyle.theme}>
-          <Theme/>
+          <Theme />
         </div>
       </Header>
-      <main className={"container " + className}>
-        {children}
-      </main>
-      <Footer/>
+      <main className={'container ' + className}>{children}</main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 
 const layoutStyle = {
   theme: {
-    display:["none", "none", "none", "block"],
-  }
-}
+    display: ['none', 'none', 'none', 'block'],
+  },
+};
