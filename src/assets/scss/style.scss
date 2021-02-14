@@ -80,9 +80,24 @@
 .container {
   margin: 0 auto;
   max-width: 1240px;
-  padding: 0 20px;
+  padding: 0 48px;
   width: 100%;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 0 20px;
+  }
 }
+
+.container.grids {
+  padding: 0;
+}
+
+.section-content {
+  @media (min-width: $breakpoint-md) {
+    max-width: 232px;
+  }
+}
+
 .site-logo {
   font-weight: bold;
   a {
@@ -273,6 +288,24 @@ article img {
   }
   textarea {
     min-height: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .grids.lg-3 {
+    grid-gap: 88px;
+  }
+}
+
+.section {
+  padding: 64px 0;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 128px 0;
+  }
+
+  &_gray {
+    background-color: #efefef;
   }
 }
 

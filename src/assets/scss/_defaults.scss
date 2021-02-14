@@ -15,7 +15,9 @@ body {
 
 main {
   p {
+    margin-top: 0;
     line-height: 1.5;
+    font-weight: 400;
   }
 }
 a {
@@ -24,6 +26,11 @@ a {
   &:hover {
     color: var(--home-link-hover-color);
   }
+}
+h1,
+h2,
+h3 {
+  margin-top: 0;
 }
 
 h1 {
@@ -51,5 +58,18 @@ h2 {
     font-size: 32px;
     line-height: 44px;
     margin-bottom: 92px;
+  }
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 44px;
+  margin-bottom: 24px;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 64px;
+    line-height: 87px;
+    margin-bottom: 98px;
   }
 }
