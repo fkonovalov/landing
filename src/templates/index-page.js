@@ -27,6 +27,7 @@ import img_03_mobile_1x from './images/section_img_03_mobile_1x.jpg';
 import img_03_mobile_2x from './images/section_img_03_mobile_2x.jpg';
 
 import quote from './images/quote.svg';
+import { RiSendPlane2Line } from 'react-icons/ri';
 
 export const pageQuery = graphql`
   query HomeQuery($id: String!) {
@@ -222,6 +223,59 @@ const HomePage = () => {
                   Vanessa Camara
                   <span className="sign">VP Operations at Appulate</span>
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container">
+            <h3>Contact us</h3>
+            <div className="container grids col-1 sm-2">
+              <div className="contact-form-box">
+                <form
+                  className="contact-form"
+                  action="/thanks"
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p>
+                    <label>
+                      Name
+                      <input type="text" name="name" required />
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      Email
+                      <input type="email" name="email" required />
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      Subject
+                      <input type="text" name="subject" required />
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      Message
+                      <textarea
+                        placeholder="Please let us know how we can be of service?"
+                        name="message"
+                        required
+                      ></textarea>
+                    </label>
+                  </p>
+                  <p className="text-align-right">
+                    <button className="button" type="submit">
+                      Submit
+                    </button>
+                  </p>
+                </form>
               </div>
             </div>
           </div>

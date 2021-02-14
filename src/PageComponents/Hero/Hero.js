@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby'
 
 import './Hero.scss';
 import Header from '../../components/Header/Header';
@@ -13,7 +14,15 @@ const Hero = () => (
     <div className="site-hero__container container">
       <h1>Remote Sales Solutions</h1>
       <h2>We find best sales people in the world</h2>
-      <Button className="button_big">Get started</Button>
+
+      <Link
+        to="/modal/"
+        state={{
+          modal: true,
+        }}
+      >
+        <Button className="button_big">Get started</Button>
+      </Link>
     </div>
   </div>
 );

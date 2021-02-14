@@ -4,7 +4,7 @@
 @import 'lib/css-grid-utility';
 
 .primary-container main {
-  min-height: calc(100vh - 60px - 81px);
+  min-height: calc(100vh - 59px);
 }
 
 .site-navigation {
@@ -258,6 +258,11 @@ article img {
   }
 }
 
+.thanks-page {
+  &__button {
+    margin: 64px auto;
+  }
+}
 .sign {
   display: block;
   color: #000;
@@ -282,8 +287,15 @@ article img {
     line-height: 1.5;
   }
 }
+.contact-form-box {
+  border: 3px solid #222;
+  padding: 42px 24px;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 42px 48px;
+  }
+}
 .contact-form {
-  margin-top: 36px;
   label {
     color: var(--label-text);
   }
@@ -293,7 +305,7 @@ article img {
     max-width: 100%;
     margin: 8px 0 16px;
     padding: 16px;
-    border-radius: 12px;
+    border: 3px solid #222;
     appearance: none;
     font-size: 18px;
     font-weight: 600;
@@ -303,6 +315,12 @@ article img {
   }
   textarea {
     min-height: 200px;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #6d6d6d;
+    font-family: var(--main-font);
+    font-weight: 400;
   }
 }
 
@@ -330,6 +348,51 @@ article img {
   &_green {
     background-color: #9cecb3;
   }
+}
+
+.modal {
+  font-weight: 400;
+  max-width: 506px;
+  margin: 0 auto;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 48px;
+    line-height: 66px;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    font-size: 24px;
+    line-height: 33px;
+    margin-bottom: 48px;
+  }
+
+  &__button {
+    margin: 0 auto;
+  }
+
+  .contact-form-box {
+    margin-top: 0;
+    padding-top: 0;
+    border: none;
+  }
+}
+
+.ReactModal__Content--after-open {
+  max-width: 506px;
+  max-height: 565px;
+  margin: 0 auto;
+  border: 3px solid #222 !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
 }
 
 @import 'utility';
