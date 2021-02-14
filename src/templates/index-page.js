@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react';
 import { jsx } from 'theme-ui';
 import {graphql, navigate} from 'gatsby';
 
@@ -27,7 +26,6 @@ import img_03_mobile_1x from './images/section_img_03_mobile_1x.jpg';
 import img_03_mobile_2x from './images/section_img_03_mobile_2x.jpg';
 
 import quote from './images/quote.svg';
-import { RiSendPlane2Line } from 'react-icons/ri';
 
 export const pageQuery = graphql`
   query HomeQuery($id: String!) {
