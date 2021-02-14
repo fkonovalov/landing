@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from 'theme-ui';
-import { graphql } from 'gatsby';
+import {graphql, navigate} from 'gatsby';
 
 import Hero from '../PageComponents/Hero/Hero';
 
@@ -240,6 +240,10 @@ const HomePage = () => {
                   method="POST"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
+                  onSubmit={event => {
+                    event.preventDefault()
+                    navigate(`/thanks`);
+                  }}
                 >
                   <input type="hidden" name="form-name" value="contact" />
                   <p>
