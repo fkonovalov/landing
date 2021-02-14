@@ -1,0 +1,48 @@
+:root {
+  --hero_bg_mobile1x: url('./images/hero_bg_mobile@1x.jpg');
+  --hero_bg_mobile2x: url('./images/hero_bg_mobile@2x.jpg');
+
+  --hero_bg1x: url('./images/hero_bg@1x.jpg');
+  --hero_bg2x: url('./images/hero_bg@2x.jpg');
+}
+
+.site-hero {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-image: var(--hero_bg_mobile1x);
+  background-size: cover;
+  object-fit: cover;
+  max-width: 100%;
+  color: #fff;
+
+  /* @2x Images (Pixel Ratio of 1.25+) */
+  @media only screen and (-o-min-device-pixel-ratio: 5/4),
+    only screen and (-webkit-min-device-pixel-ratio: 1.25),
+    only screen and (min--moz-device-pixel-ratio: 1.25),
+    only screen and (min-device-pixel-ratio: 1.25),
+    only screen and (min-resolution: 1.25dppx) {
+    background-image: var(--hero_bg_mobile2x);
+  }
+
+  @media (min-width: 960px) {
+    /* @2x Images (Pixel Ratio of 1.25+) */
+    @media only screen and (-o-min-device-pixel-ratio: 5/4),
+      only screen and (-webkit-min-device-pixel-ratio: 1.25),
+      only screen and (min--moz-device-pixel-ratio: 1.25),
+      only screen and (min-device-pixel-ratio: 1.25),
+      only screen and (min-resolution: 1.25dppx) {
+      background-image: var(--hero_bg2x);
+    }
+
+    background-image: var(--hero_bg1x);
+  }
+
+  &__container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

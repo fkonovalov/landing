@@ -1,9 +1,10 @@
 /** @jsx jsx */
+import React from 'react';
 import { jsx } from 'theme-ui';
-import { graphql, Link } from 'gatsby';
+import {graphql, Link} from 'gatsby';
 import Img from 'gatsby-image';
 import { RiArrowRightSLine } from 'react-icons/ri';
-
+import Hero from '../PageComponents/Hero/Hero';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -40,38 +41,45 @@ const HomePage = ({ data }) => {
   const { frontmatter, html } = markdownRemark;
   const Image = frontmatter.featuredImage ? frontmatter.featuredImage.childImageSharp.fluid : '';
   return (
-    <Layout>
-      <SEO />
-      <div className="home-banner grids col-1 sm-2">
-        <div>
-          <h1 className="title">{frontmatter.title}</h1>
-          <p
-            className="tagline"
-            sx={{
-              color: 'muted',
-            }}
-          >
-            {frontmatter.tagline}
-          </p>
-          <div className="description" dangerouslySetInnerHTML={{ __html: html }} />
-          <Link
-            to={frontmatter.cta.ctaLink}
-            className="button"
-            sx={{
-              variant: 'links.button',
-            }}
-          >
-            {frontmatter.cta.ctaText}
-            <span class="icon -right">
-              <RiArrowRightSLine />
-            </span>
-          </Link>
+    <>
+      <Layout>
+        <SEO />
+        <Hero />
+        <div className="home-banner container grids col-1 sm-2">
+          <div>
+            <h1 className="title">{frontmatter.title}</h1>
+            <p
+              className="tagline"
+              sx={{
+                color: 'muted',
+              }}
+            >
+              {frontmatter.tagline}
+            </p>
+            <div className="description" dangerouslySetInnerHTML={{ __html: html }} />
+            <Link
+              to={frontmatter.cta.ctaLink}
+              className="button"
+              sx={{
+                variant: 'links.button',
+              }}
+            >
+              {frontmatter.cta.ctaText}
+              <span class="icon -right">
+                <RiArrowRightSLine />
+              </span>
+            </Link>
+          </div>
+          <div>
+            {Image ? (
+              <Img fluid={Image} alt={frontmatter.title + ' - Featured image'} className="featured-image" />
+            ) : (
+              ''
+            )}
+          </div>
         </div>
-        <div>
-          {Image ? <Img fluid={Image} alt={frontmatter.title + ' - Featured image'} className="featured-image" /> : ''}
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

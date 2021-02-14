@@ -1,48 +1,31 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { useStaticQuery, graphql } from 'gatsby';
+import classNames from 'classnames';
 
-import Header from './Header/Header';
-import Logo from './logo';
-import Navigation from './navigation';
+// import Header from './Header/Header';
+// import Logo from './Logo/Logo';
+// import Navigation from './navigation';
 
 import '../assets/scss/style.scss';
 import Footer from './Footer/Footer';
-import Theme from '../components/theme';
+// import Theme from '../components/theme';
 
-const query = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        siteTitle: title
-      }
-    }
-  }
-`;
 
-const Layout = ({ children, className, props }) => {
-  const { site } = useStaticQuery(query);
-  const { siteTitle } = site.siteMetadata;
+const Layout = ({ children, className }) => {
 
   return (
     <div className="primary-container">
-      <Header>
-        <Logo title={siteTitle} />
-        <Navigation />
-        <div sx={layoutStyle.theme}>
-          <Theme />
-        </div>
-      </Header>
-      <main className={'container ' + className}>{children}</main>
+      <main className={classNames('main', className)}>{children}</main>
       <Footer />
     </div>
   );
 };
 
 export default Layout;
-
-const layoutStyle = {
-  theme: {
-    display: ['none', 'none', 'none', 'block'],
-  },
-};
+//
+// const layoutStyle = {
+//   theme: {
+//     display: ['none', 'none', 'none', 'block'],
+//   },
+// };

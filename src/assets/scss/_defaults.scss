@@ -9,12 +9,10 @@ body {
   padding: 0;
 }
 body {
-  font-family: var(--font-family);
+  font-family: var(--main-font);
   font-size: 18px;
 }
-code {
-  font-family: var(--font-family-mono);
-}
+
 main {
   p {
     line-height: 1.5;
@@ -25,5 +23,33 @@ a {
   text-decoration: none;
   &:hover {
     color: var(--home-link-hover-color);
+  }
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 50px;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 24px;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 72px;
+    line-height: 98px;
+    margin-bottom: 26px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 32px;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom: 92px;
   }
 }
