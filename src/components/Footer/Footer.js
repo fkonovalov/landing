@@ -1,25 +1,16 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { Link } from 'gatsby';
-import { RiHeart2Line } from 'react-icons/ri';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 import './Footer.scss';
 
 const Footer = () => (
-  <footer
-    className="site-footer"
-    sx={{
-      bg: 'primary',
-    }}
-  >
-    <div className="container">
-      <p>
-        A GatsbyJS Starter for Netlify CMS, Made with{' '}
-        <span className="icon -love">
-          <RiHeart2Line />
-        </span>{' '}
-        by <Link to="/">Stackrole.com!!!</Link>
-      </p>
+  <footer className="site-footer">
+    <div className="site-footer__container container">
+      <p>RSS © {new Date().getFullYear()}</p>
+      <a className="site-footer__scroll-top" onClick={() => scrollTo('#top')}>
+        Go to Top
+      </a>
     </div>
   </footer>
 );

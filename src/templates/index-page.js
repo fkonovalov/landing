@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from 'theme-ui';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Hero from '../PageComponents/Hero/Hero';
 
@@ -13,6 +13,20 @@ import img_01_2x from './images/section_img_01_2x.jpg';
 
 import img_01_mobile_1x from './images/section_img_01_mobile_1x.jpg';
 import img_01_mobile_2x from './images/section_img_01_mobile_2x.jpg';
+
+import img_02_1x from './images/section_img_02_1x.jpg';
+import img_02_2x from './images/section_img_02_2x.jpg';
+
+import img_02_mobile_1x from './images/section_img_02_mobile_1x.jpg';
+import img_02_mobile_2x from './images/section_img_02_mobile_2x.jpg';
+
+import img_03_1x from './images/section_img_03_1x.jpg';
+import img_03_2x from './images/section_img_03_2x.jpg';
+
+import img_03_mobile_1x from './images/section_img_03_mobile_1x.jpg';
+import img_03_mobile_2x from './images/section_img_03_mobile_2x.jpg';
+
+import quote from './images/quote.svg';
 
 export const pageQuery = graphql`
   query HomeQuery($id: String!) {
@@ -41,10 +55,7 @@ export const pageQuery = graphql`
   }
 `;
 
-const HomePage = ({ data }) => {
-  const { markdownRemark } = data; // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark;
-  const Image = frontmatter.featuredImage ? frontmatter.featuredImage.childImageSharp.fluid : '';
+const HomePage = () => {
   return (
     <>
       <Layout>
@@ -81,6 +92,7 @@ const HomePage = ({ data }) => {
             </div>
           </div>
         </section>
+
         <section className="section section_gray">
           <div className="container">
             <h3>Our Talent = More Sales!</h3>
@@ -94,6 +106,121 @@ const HomePage = ({ data }) => {
                   Remote Sales Solutions is the go-to source for sales organizations that are looking to scale. We
                   provide our clients with Sales Coordinators / Sales Development Resources (SDR) and CRM administrators
                   using a proven staff augmentation model.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section_orange">
+          <div className="container">
+            <h3>What makes us awesome</h3>
+            <div className="container grids col-1 sm-2 lg-3">
+              <div>
+                <picture className="regulation-intro__bg-image">
+                  <source srcSet={`${img_02_1x} , ${img_02_2x} 2x`} media="(min-width: 960px)" />
+                  <source srcSet={`${img_02_mobile_1x} , ${img_02_mobile_2x} 2x`} media="(min-width: 320px)" />
+                  <img srcSet={`${img_02_1x} , ${img_02_2x} 2x`} alt="image" />
+                </picture>
+              </div>
+              <div className="section-content">
+                <p>
+                  <b>Your Requirements</b> – Provide RSS with your job requirements. What is the role going to entail
+                  and what specific skillset or experience are you looking for? This is no different than what you would
+                  do to make a local hire.
+                </p>
+                <p>
+                  <b>Hire</b> (well sort of…) – Once you choose the best candidate for your role, RSS will have you sign
+                  a contract to engage that person on a on a full-time / fully dedicated basis.
+                </p>
+              </div>
+              <div className="section-content">
+                <p>
+                  <b>Interview</b> – RSS will use our vast network to match your needs with one of our fully vetted
+                  resources. We provide you with resumes and schedule interviews. You are welcome to interview as many
+                  candidates as you would like.
+                </p>
+
+                <p>
+                  <b>Success</b> – The resource you choose joins your team. They are fully managed by you, but work from
+                  one of our offices. You simply pay us monthly to retain this resource.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container">
+            <h3>We Speak Sales!</h3>
+            <div className="container grids col-1 sm-2">
+              <div>
+                <p>
+                  Our founders and management have a history of leading successful sales organizations. We understand
+                  the importance of being able to leverage resources beyond just salespeople to drive results.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section_gray">
+          <div className="container">
+            <h3>About us</h3>
+            <div className="container grids col-1 sm-2 lg-3">
+              <div>
+                <p>
+                  Founded in 2020, RSS has its corporate headquarters in Southern California and four development
+                  centers in Europe. This enables Murano to provide our clients with a comprehensive suite of highly
+                  affordable software development and IT team staffing services while unequivocally guaranteeing
+                  security for software and intellectual property, as governed by U.S. laws.
+                </p>
+                <p>
+                  Our services: Architecting, designing, developing, testing and documenting software applications;
+                  providing support and ongoing maintenance.
+                </p>
+              </div>
+              <div className="section-content">
+                <p>
+                  Murano specializes in assembling and managing dedicated development teams of highly skilled technology
+                  professionals that augment a company’s in-house IT resources. We provide and manage a dedicated
+                  full-time team of hand-picked technical resources that augment and operate as an extension of your
+                  company’s internal IT team. This ensures you continuity, and the peace of mind that comes with knowing
+                  that we take full responsibility for the end result.{' '}
+                </p>
+              </div>
+              <div className="section-content">
+                <p>
+                  Our team of senior software professionals is comprised of skilled, experienced problem solvers, not
+                  just coders and technicians. Our managers and software architects have the business acumen to
+                  understand your demanding working standards and produce the high-quality software products you need.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section_green">
+          <div className="container">
+            <h3>Testimonial</h3>
+            <div className="container grids col-1 sm-2 lg-3">
+              <div>
+                <picture className="regulation-intro__bg-image">
+                  <source srcSet={`${img_03_1x} , ${img_03_2x} 2x`} media="(min-width: 960px)" />
+                  <source srcSet={`${img_03_mobile_1x} , ${img_03_mobile_2x} 2x`} media="(min-width: 320px)" />
+                  <img className="image-shadow" srcSet={`${img_03_1x} , ${img_03_2x} 2x`} alt="image" />
+                </picture>
+              </div>
+              <div>
+                <img className="quote" src={quote} alt="quote" />
+                <p>
+                  Our 2 remote SDRs far exceeded our expectations and generated more than $1.5M in new opportunities
+                  this year. We once again surpassed our annual sales goal and wanted to thank RSS for being such a
+                  valuable partner.
+                </p>
+                <p>
+                  Vanessa Camara
+                  <span className="sign">VP Operations at Appulate</span>
                 </p>
               </div>
             </div>

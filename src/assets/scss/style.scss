@@ -257,6 +257,21 @@ article img {
     margin: 0 auto;
   }
 }
+
+.sign {
+  display: block;
+  color: #000;
+  opacity: 0.6;
+}
+
+.quote {
+  margin: 10px 0 31px;
+}
+
+.image-shadow {
+  box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.3);
+}
+
 // Contact page
 .contact-page {
   .wrapper {
@@ -306,6 +321,14 @@ article img {
 
   &_gray {
     background-color: #efefef;
+  }
+
+  &_orange {
+    background-color: #ffab7b;
+  }
+
+  &_green {
+    background-color: #9cecb3;
   }
 }
 

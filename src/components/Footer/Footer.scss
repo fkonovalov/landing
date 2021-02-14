@@ -1,18 +1,28 @@
 .site-footer {
   display: flex;
   align-items: center;
-  background: #eee;
   text-align: center;
   font-size: 14px;
   padding: 20px 0;
+  color: #afadad;
+  background-color: #000;
+
   p {
     margin: 0;
-    color: #fff;
   }
-  a {
-    font-weight: normal;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  a:hover {
-    color: #fff;
+  &__scroll-top {
+    color: #48af40;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: #55cb4c;
+    }
   }
 }
